@@ -28,6 +28,7 @@ if you want to persist the data/info of file from the container (even after remo
 # docker run -v /opt/datadir:/var/lib/mysql mysql (where /opt/datadir is in host and mapped to //var/lib/mysql to container)
 
 # docker inspect <container-name/ID> gives all the info about the container in JSON format
+#
 
 
 
