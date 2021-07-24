@@ -1,0 +1,33 @@
+#docker ps -a
+#docker run <container-name/ID>
+#docker stop <container-name/ID>
+#docker images or docker images -a 
+#docker rmi <image-name/ID> --force (if required)
+#docker run -d --name <some-name> container-name/ID (to override the given name)
+#docker run --rm image_name (run and remove)
+
+
+#docker run -it  kodekloud/simple-prompt-docker [ interactive mode and attach terminal , where the prompt of host is supplied to container]
+
+every container is having an IP address associoated with it but its internal 
+
+To allow the docker web based application to allow access from external machines, we need to map the host IP to container IP
+#docker run -p 80:5000 kodekloud/simple-webapp
+User on other machione can access http://192.168.1.5.80 < where 192.168.1.5 is the host IP >
+this way the traffic to port 80 from the host will be routed to container 
+If we need to run miltupl;e instance of the container <having the web application>
+#docker run -p 8000:5000 kodekloud/simple-webapp < 8000 is the host port , where 5000 we got on the prompt saying which http the continer listning >
+#docker run -p 8001:5000 kodekloud/simple-webapp
+Some  more examples 
+#docker run -p 3306:3306 mysql
+#docker run -p 8306:3306 mysql
+
+Docker container has its own isolated file system any changes to the file systems will happens inside the contrainer
+if you want to persist the data/info of file from the container (even after removing/deleting the container) need to map to host file system
+1. while running 
+# docker run -v /opt/datadir:/var/lib/mysql mysql (where /opt/datadir is in host and mapped to //var/lib/mysql to container)
+
+# docker inspect <container-name/ID> gives all the info about the container in JSON format
+
+
+
